@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_drawable"/>
+
+    <TextView
+        android:id="@+id/stopName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/stopDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distance" />
+
+    <TextView
+        android:id="@+id/stopAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address" />
+
+</LinearLayout>
