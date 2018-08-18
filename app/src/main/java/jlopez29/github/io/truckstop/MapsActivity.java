@@ -212,17 +212,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setOnCameraMoveStartedListener(new GoogleMap.OnCameraMoveStartedListener() {
             @Override
             public void onCameraMoveStarted(int i) {
-                Log.e(TAG,"Cam move started");
+                Log.e(TAG,"Cam move started " + toggleTracking);
 
 
                 if(toggleTracking) {
-                    if(!viewReset)
-                    {
                         toggled = true;
                         toggleTracking(false);
-                    }
-                    else
-                        viewReset = false;
 
                 }
             }
@@ -408,13 +403,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 12.0f));
-                toggled = true;
+
             }
         }
         else {
             Log.e(TAG,"Untrack map");
             lm.removeUpdates(ll);
-            toggled = false;
+
         }
     }
 
@@ -428,7 +423,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if(ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 8.0f));
-            toggled=true;
+            if(toggleTracking)
+                toggled=true;
         }
     }
     @Override
